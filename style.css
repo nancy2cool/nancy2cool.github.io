@@ -1,15 +1,23 @@
 :root{
-  --bg0:#0b0a12;
-  --bg1:#121027;
+  --bg0:#0b0908;
+  --bg1:#14110e;
+
   --card: rgba(255,255,255,.06);
   --border: rgba(255,255,255,.12);
+
   --text: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.68);
-  --accent1:#ff7a59; /* coral */
-  --accent2:#ffcc66; /* warm gold */
-  --accent3:#b86bff; /* dusk purple */
+
+  /* warmer sunset accents */
+  --accent1:#ff6b3d; /* orange-coral */
+  --accent2:#ffb35c; /* warm gold */
+  --accent3:#ff845e; /* soft coral (replaces heavy purple) */
+
   --shadow: 0 18px 60px rgba(0,0,0,.45);
-  --radius: 18px;
+
+  /* more square (was 18px) */
+  --radius: 12px;
+
   --max: 980px;
   --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
   --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
@@ -17,15 +25,19 @@
 
 *{box-sizing:border-box}
 html,body{height:100%}
+
 body{
   margin:0;
   font-family:var(--sans);
   color:var(--text);
+
+  /* warmer, more orange sunset background (less purple/blue) */
   background:
-    radial-gradient(900px 500px at 12% 12%, rgba(255,122,89,.22), transparent 60%),
-    radial-gradient(700px 480px at 90% 18%, rgba(255,204,102,.18), transparent 55%),
-    radial-gradient(900px 650px at 55% 92%, rgba(184,107,255,.16), transparent 60%),
+    radial-gradient(900px 520px at 10% 12%, rgba(255,120,60,.28), transparent 60%),
+    radial-gradient(700px 480px at 90% 20%, rgba(255,180,90,.22), transparent 55%),
+    radial-gradient(900px 650px at 50% 95%, rgba(255,90,60,.14), transparent 60%),
     linear-gradient(180deg, var(--bg0), var(--bg1));
+
   line-height:1.55;
 }
 
@@ -44,9 +56,11 @@ a:hover{opacity:.92}
   justify-content:space-between;
   gap:16px;
   padding:14px 16px;
+
   border:1px solid var(--border);
   background:rgba(255,255,255,.04);
   backdrop-filter: blur(10px);
+
   border-radius:var(--radius);
   box-shadow: var(--shadow);
 }
@@ -56,17 +70,14 @@ a:hover{opacity:.92}
   align-items:baseline;
   gap:10px;
 }
+
+/* if the name is a link, keep it looking like a brand */
 .brand .name{
   font-weight:700;
   letter-spacing:.2px;
 }
-.brand .tag{
-  font-family:var(--mono);
-  font-size:12px;
-  color:var(--muted);
-  border:1px solid var(--border);
-  padding:4px 8px;
-  border-radius:999px;
+.brand .name:hover{
+  opacity:.9;
 }
 
 .nav{
@@ -75,6 +86,7 @@ a:hover{opacity:.92}
   gap:8px;
   justify-content:flex-end;
 }
+
 .nav a{
   font-size:13px;
   color:var(--muted);
@@ -82,22 +94,33 @@ a:hover{opacity:.92}
   border-radius:999px;
   border:1px solid transparent;
 }
+
 .nav a:hover{
   color:var(--text);
   border-color:var(--border);
   background:rgba(255,255,255,.04);
 }
+
 .nav a.active{
   color:var(--text);
-  border-color:rgba(255,122,89,.45);
-  background:linear-gradient(90deg, rgba(255,122,89,.16), rgba(255,204,102,.10));
+  border-color:rgba(255,107,61,.55);
+  background:linear-gradient(90deg, rgba(255,107,61,.18), rgba(255,179,92,.10));
 }
 
 .hero{
   margin-top:18px;
   padding:34px 22px;
+
   border:1px solid var(--border);
-  background:linear-gradient(135deg, rgba(255,122,89,.12), rgba(255,204,102,.08), rgba(184,107,255,.10));
+
+  /* warmer hero gradient */
+  background:linear-gradient(
+    135deg,
+    rgba(255,107,61,.16),
+    rgba(255,179,92,.10),
+    rgba(255,132,94,.10)
+  );
+
   border-radius:calc(var(--radius) + 6px);
   box-shadow: var(--shadow);
 }
@@ -113,15 +136,26 @@ small{color:var(--muted)}
   grid-template-columns: repeat(12, 1fr);
   gap:14px;
 }
+
 .card{
   grid-column: span 6;
   padding:18px;
+
   border:1px solid var(--border);
   background:rgba(255,255,255,.04);
+
+  /* more square */
   border-radius:var(--radius);
+
   box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  transition: transform .12s ease, border-color .12s ease;
 }
-.card:hover{border-color: rgba(255,122,89,.35)}
+
+.card:hover{
+  border-color: rgba(255,107,61,.40);
+  transform: translateY(-1px);
+}
+
 .card h3{margin:0 0 6px; font-size:16px}
 .card p{margin:0; font-size:14px}
 
@@ -151,6 +185,7 @@ small{color:var(--muted)}
   gap:8px;
   margin-top:10px;
 }
+
 .badge{
   font-family:var(--mono);
   font-size:12px;
@@ -166,17 +201,10 @@ small{color:var(--muted)}
   padding-left:18px;
   color:var(--muted);
 }
+
 .list li{margin:6px 0}
 
 @media (max-width: 860px){
   .card{grid-column: span 12;}
   h1{font-size:30px}
-}
-
-.brand .name{
-  font-weight:700;
-  letter-spacing:.3px;
-}
-.brand .name:hover{
-  opacity:.9;
 }
