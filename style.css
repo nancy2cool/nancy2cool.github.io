@@ -173,3 +173,10 @@ small{color:var(--muted)}
   h1{font-size:30px}
 }
 
+.brand .name{
+  font-weight:700;
+  letter-spacing:.3px;
+}
+.brand .name:hover{
+  opacity:.9;
+}
