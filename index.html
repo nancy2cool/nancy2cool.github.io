@@ -1,10 +1,73 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Nancy's Site</title>
-  </head>
-  <body>
-    <h1>It works 🎉</h1>
-    <p>My GitHub Pages site is live.</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nancy Lu — Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="name">Nancy Lu</div>
+        <div class="tag">sunset minimal</div>
+      </div>
+      <nav class="nav">
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="math.html">Math</a>
+        <a href="cooking.html">Cooking</a>
+        <a href="books.html">Books</a>
+        <a href="golf.html">Golf</a>
+        <a href="music.html">Music</a>
+        <a href="photography.html">Photography</a>
+        <a href="misc.html">Misc</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="kicker">Home</div>
+      <h1>Hi — I’m Nancy.</h1>
+      <p>
+        Welcome to my corner of the internet. I keep things simple: a few pages for what I’m building,
+        learning, and enjoying.
+      </p>
+      <div class="badges">
+        <div class="badge">Austin, TX</div>
+        <div class="badge">Math</div>
+        <div class="badge">Projects</div>
+        <div class="badge">Golf</div>
+        <div class="badge">Cooking</div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <a class="card" href="projects.html">
+        <h3>Projects</h3>
+        <p>What I’m currently working on + past highlights.</p>
+      </a>
+      <a class="card" href="math.html">
+        <h3>Math</h3>
+        <p>Notes, problems I liked, and things I’m exploring.</p>
+      </a>
+      <a class="card" href="cooking.html">
+        <h3>Cooking</h3>
+        <p>Recipes I’ve tried and what I’d change next time.</p>
+      </a>
+      <a class="card" href="photography.html">
+        <h3>Photography</h3>
+        <p>Albums, shots I’m proud of, and gear/logs.</p>
+      </a>
+    </section>
+
+    <footer class="footer">
+      <div>© <span id="y"></span> Nancy Lu</div>
+      <div><small>Built on GitHub Pages.</small></div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
 </html>
